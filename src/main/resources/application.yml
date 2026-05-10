@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/agentdb
+    username: user
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: agent-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: true
+
+openai:
+  api-key: ${API_KEY}
+
+agent:
+  severity-rules:
+    HIGH:
+      - security threats
+      - unauthorized access
+      - repeated failures
+      - system-wide issues
+    MEDIUM:
+      - performance degradation
+      - partial failures
+      - increased latency
+    LOW:
+      - normal operation
+      - minor issues
+      - transient issues
+
+logging:
+  level:
+    com.example: INFO
+    org.springframework.kafka: INFO
