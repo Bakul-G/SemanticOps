@@ -9,9 +9,6 @@
     <artifactId>event-driven-app</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-<!-- 
-    <name>Kafka Listener App</name>
-    <description>Spring Boot application with Kafka listener</description> -->
 
     <parent>
         <groupId>org.springframework.boot</groupId>
